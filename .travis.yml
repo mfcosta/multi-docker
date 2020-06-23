@@ -12,13 +12,13 @@ script:
 
 after_success:
   - docker build -t mfcosta/multi-client ./client
-  - docker build -t mfcosta/mult-nginx ./nginx
-  - docker build -t mfcosta/mult-server ./server
-  - docker build -t mfcosta/mult-worker ./worker
+  - docker build -t mfcosta/multi-nginx ./nginx
+  - docker build -t mfcosta/multi-server ./server
+  - docker build -t mfcosta/multi-worker ./worker
   # Log in to Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to Docker Hub
   - docker push mfcosta/multi-client
-  - docker push mfcosta/mult-nginx
-  - docker push mfcosta/mult-server
-  - docker push mfcosta/mult-worker
+  - docker push mfcosta/multi-nginx
+  - docker push mfcosta/multi-server
+  - docker push mfcosta/multi-worker
